@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import tempfile
-from rag_pipeline2 import build_rag_chain  # normalize_text da dönecek
+from rag_pipeline import build_rag_chain  # normalize_text da dönecek
 
 # 🎨 Sayfa yapılandırması
 st.set_page_config(page_title="İBB Faaliyet Raporu RAG", layout="wide")
