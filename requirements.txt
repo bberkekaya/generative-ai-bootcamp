@@ -1,0 +1,46 @@
+# --- Web arayüzü ---
+streamlit==1.31.1
+
+# --- LangChain ekosistemi ---
+langchain==0.3.0
+langchain-community==0.3.0
+langchain-google-genai>=0.3.0
+langchain-huggingface==0.0.3
+langchain-core==0.2.27
+langchain-text-splitters==0.2.2
+langsmith==0.1.147
+
+# --- Embedding / Model tarafı ---
+sentence-transformers==2.7.0
+transformers==4.41.2
+torch==2.3.1
+faiss-cpu==1.8.0
+huggingface-hub==0.23.0
+
+# --- Yardımcı kütüphaneler ---
+python-dotenv==1.0.0
+numpy==1.26.4
+pandas==2.2.2
+requests==2.31.0
+tenacity==8.2.3
+pillow==10.3.0
+blinker==1.7.0
+protobuf==4.25.8
+PyYAML==6.0.3
+
+# --- Streamlit bağımlılıkları ---
+altair<6,>=4.0
+cachetools<6,>=4.0
+click<9,>=7.0
+importlib-metadata<8,>=1.4
+packaging<24,>=16.8
+pyarrow>=7.0
+rich<14,>=10.14.0
+toml<2,>=0.10.1
+typing-extensions<5,>=4.3.0
+tzlocal<6,>=1.1
+validators<1,>=0.2
+gitpython!=3.1.19,<4,>=3.0.7
+pydeck<1,>=0.8.0b4
+tornado<7,>=6.0.3
+watchdog>=2.1.5
