@@ -8,36 +8,36 @@ Generative AI Bootcamp için hazırlanmış, Türkçe RAG (Retrieval-Augmented G
 Bu proje, Türkçe kaynaklar üzerinden sorulara yanıt verebilen bir AI asistanı oluşturur. Hugging Face veya kendi veri setinizi kullanarak, kullanıcıların sorularına en uygun belgelerden bilgi çekip yanıt üretir.
 RAG yaklaşımı sayesinde model, yalnızca önceden eğitildiği veriye değil, aynı zamanda retrieval (bilgi getirme) adımıyla canlı verilere de dayanabilir.
 
+Projede veri kaynağı olarak İBB 2024 yılı faaliyet raporu kullanılmış olup PDF dosyasına https://ibb.istanbul/ibb/faaliyet-raporlari/ web sitesi üzerinden ulaşılabilir.
+
 🛠️ Kullanılan Teknolojiler
 
 LangChain – RAG pipeline framework
 
-Streamlit / Gradio – Web arayüzü
+Streamlit – Web arayüzü
 
-Sentence Transformers – Türkçe embedding modeli
+Sentence Transformers – Embedding modeli
 
-Llama 2 / GPT / Google Gemini – Text generation modeli
+Google Gemini – Text generation modeli
 
 InMemory / FAISS Document Store – Vektör veritabanı
 
 Hugging Face Datasets – Veri seti yönetimi
 
 🚀 Kurulum
-1. Gerekli Paketleri Yükleyin
-# Sanal ortam oluşturun (opsiyonel)
-python -m venv genai-env
-# macOS/Linux
-source genai-env/bin/activate
-# Windows
-# genai-env\Scripts\activate
+1.Gerekli Paketleri Yükleyin
 
-# Paketleri yükleyin
+1.1 Sanal ortam oluşturun (opsiyonel)
+python -m venv genai-env
+source genai-env/bin/activate # macOS/Linux
+genai-env\Scripts\activate # Windows
+
+1.2 Paketleri yükleyin
 pip install -r requirements.txt
 
-2. API Anahtarlarını Ayarlayın
+2.API Anahtarlarını Ayarlayın
 
-Proje kök dizininde .env dosyası oluşturun:
-
+2.1 Proje kök dizininde .env dosyası oluşturun:
 HF_TOKEN=your_huggingface_token_here
 GOOGLE_API_KEY=your_google_api_key_here  # Eğer Google AI kullanıyorsanız
 
@@ -46,22 +46,20 @@ Hugging Face Token: Hugging Face Settings
 
 Google API Key: Google AI Studio
 
-3. Uygulamayı Çalıştırın
+3.Uygulamayı Çalıştırın
 streamlit run app.py
 
-
-Tarayıcınızda otomatik olarak açılacaktır (genellikle http://localhost:8501
-).
+Tarayıcınızda otomatik olarak açılacaktır (genellikle http://localhost:8501).
 
 📁 Proje Yapısı
 .
-├── app.py                 # Ana uygulama dosyası (Streamlit / Gradio)
+├── app.py                 # Ana uygulama dosyası (Streamlit)
 ├── requirements.txt       # Python bağımlılıkları
 ├── .env                   # API anahtarları (git'e eklenmez)
 ├── README.md              # Bu dosya
 ├── data/                  # Opsiyonel: Kullanıcı veri setleri (.pdf veya .txt formatı)
-├── venv/                  # Ortam dosyaları
-└── modules/               # Opsiyonel: pipeline, embedding, veri işleme modülleri
+├── rag_pipeline.py        # Proje kodlarının yer aldığı dosya (LangChain, API Key Bağlantısı vb.)
+└── venv/                  # Ortam dosyaları
 
 💡 Çalışma Mantığı
 
@@ -79,7 +77,7 @@ Yanıt Üretimi: Seçilen belgeler kullanılarak LLM modeli yanıt üretir
 
 🎯 Örnek Sorular
 
-"İBB Halk Market Gıda Ürünleri Satış Hizmetleri nelerdir??"
+"İBB Halk Market Gıda Ürünleri Satış Hizmetleri nelerdir?"
 
 "Tech İstanbul nedir?"
 
@@ -88,6 +86,8 @@ Yanıt Üretimi: Seçilen belgeler kullanılarak LLM modeli yanıt üretir
 ⚠️ Önemli Notlar
 
 İlk çalıştırmada veri seti indirilir ve embedding işlemi yapılır; büyük veri setlerinde bu uzun sürebilir
+
+Prompt yazılırken çeşitli harf değişiklikleri LLM'in soruyu yanıtsız bırakmasına neden olabilir
 
 CPU’da embedding işlemi yavaş olabilir; GPU kullanımı önerilir
 
